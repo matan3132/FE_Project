@@ -16,7 +16,7 @@ export default function Home() {
         className={styles.searchBox}
       />
 
-      <h2>איך זה עובד?</h2>
+      <h2>??איך זה עובד</h2>
       <div className={styles.steps}>
         <div className={styles.step}>
           <div className={styles.circle}>1</div>
