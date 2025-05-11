@@ -1,0 +1,78 @@
+.footer {
+  border-top: 1.5px solid #e5e7eb;
+  background: #fff;
+  padding: 0 1.5rem 0.5rem 1.5rem;
+  margin-top: 3rem;
+  direction: rtl;
+}
+
+.footerContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.2rem 0 0.2rem 0;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.logoSection {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.logo {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #e0e7ef;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.08);
+}
+
+.siteName {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1e3a8a;
+  letter-spacing: -0.5px;
+}
+
+.links {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.links a {
+  color: #4b5563;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.05rem;
+  transition: color 0.2s;
+}
+
+.links a:hover {
+  color: #2563eb;
+}
+
+@media (max-width: 700px) {
+  .footerContent {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.7rem;
+    padding: 1.2rem 0 0.2rem 0;
+  }
+  .links {
+    gap: 1rem;
+  }
+}
+
+.copyright {
+  text-align: center;
+  color: #6b7280;
+  font-size: 0.98rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.2rem;
+} 

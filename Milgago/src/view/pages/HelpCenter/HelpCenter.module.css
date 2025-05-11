@@ -1,0 +1,120 @@
+.container {
+    direction: rtl;
+    text-align: center;
+    padding: 6rem 2rem 2rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    font-family: inherit;
+    min-height: 100vh;
+}
+
+.card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+    padding: 2rem 1.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tabs {
+    display: flex;
+    gap: 1rem;
+    margin: 2rem 0 1rem 0;
+    justify-content: center;
+}
+
+.tab,
+.tabActive {
+    background: #f4f4f4;
+    color: #2563eb;
+    border: 1px solid #2563eb;
+    border-radius: 8px;
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.tabActive {
+    background: #2563eb;
+    color: #fff;
+}
+
+.faqSection,
+.privacySection {
+    width: 100%;
+    margin-top: 2rem;
+    text-align: right;
+}
+
+.faqItem {
+    background: #f8f8f8;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.primaryBtn {
+    background-color: #2563eb;
+    color: white;
+    padding: 0.6rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.primaryBtn:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+}
+
+.secondaryBtn {
+    background-color: #f3f4f6;
+    color: #4b5563;
+    padding: 0.6rem 1.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.secondaryBtn:hover {
+    background-color: #e5e7eb;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 900px) {
+    .container {
+        padding: 5rem 1rem 1.5rem 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 4rem 0.5rem 1rem 0.5rem;
+    }
+
+    .card {
+        padding: 1rem 0.5rem;
+    }
+}
