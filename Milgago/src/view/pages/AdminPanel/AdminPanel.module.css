@@ -15,6 +15,7 @@
 
 .adminHeader {
     margin-bottom: 2rem;
+    text-align: center;
 }
 
 .adminTitle {
@@ -67,6 +68,7 @@
 .table {
     width: 100%;
     border-collapse: collapse;
+    margin-top: 1rem;
 }
 
 .table th,
@@ -116,31 +118,206 @@
 }
 
 .actionButton {
-    padding: 0.25rem 0.5rem;
+    padding: 0.5rem 1rem;
     border: none;
-    border-radius: 6px;
-    font-size: 0.875rem;
-    font-weight: 500;
+    border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
 }
 
 .editButton {
-    background: #dbeafe;
-    color: #1e40af;
+    background-color: #2563eb;
+    color: white;
 }
 
 .editButton:hover {
-    background: #bfdbfe;
+    background-color: #1d4ed8;
 }
 
 .deleteButton {
-    background: #fee2e2;
-    color: #991b1b;
+    background-color: #dc2626;
+    color: white;
 }
 
 .deleteButton:hover {
-    background: #fecaca;
+    background-color: #b91c1c;
+}
+
+.statusCell {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.statusSelect {
+    padding: 0.5rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 4px;
+    background-color: white;
+    cursor: pointer;
+    font-weight: 500;
+    min-width: 120px;
+}
+
+.statusSelect option[value=""] {
+    color: #000000;
+    font-weight: 500;
+}
+
+.statusSelect option[value="active"] {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+.statusSelect option[value="inactive"] {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.statusSelect option[value="cancelled"] {
+    background-color: #f3f4f6;
+    color: #4b5563;
+}
+
+.statusSelect:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+}
+
+.statusIndicator {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.statusIndicator.active {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+.statusIndicator.pending {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+.statusIndicator.rejected {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 1rem;
+}
+
+.modal {
+    background: #fff;
+    border-radius: 10px;
+    width: 95%;
+    max-width: 800px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+}
+
+.modalHeader {
+    padding: 1.5rem;
+    border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 1;
+}
+
+.modalHeader h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #1e293b;
+}
+
+.modalContent {
+    padding: 1.5rem;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.closeButton {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #6b7280;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    transition: color 0.2s;
+    z-index: 2;
+}
+
+.closeButton:hover {
+    color: #1e293b;
+}
+
+.applicantsList {
+    display: grid;
+    gap: 1rem;
+    max-height: calc(90vh - 200px);
+    overflow-y: auto;
+}
+
+.applicantCard {
+    background: #f9fafb;
+    border-radius: 8px;
+    padding: 1rem;
+    border: 1px solid #e5e7eb;
+}
+
+.applicantCard h3 {
+    margin: 0 0 0.5rem;
+    color: #1e293b;
+}
+
+.applicantCard p {
+    margin: 0.25rem 0;
+    color: #4b5563;
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 1.5rem;
+    color: #6b7280;
+}
+
+.error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 1.5rem;
+    color: #dc2626;
 }
 
 @media (max-width: 768px) {
@@ -153,129 +330,321 @@
     }
 
     .table {
-        display: block;
-        overflow-x: auto;
+        font-size: 0.9rem;
     }
 
     .actions {
         flex-direction: column;
     }
+
+    .modal {
+        width: 100%;
+        max-height: 95vh;
+    }
+
+    .modalHeader {
+        padding: 1rem;
+    }
+
+    .modalContent {
+        padding: 1rem;
+    }
 }
 
 .container {
-    text-align: center;
-    padding: 6rem 2rem 2rem 2rem;
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    direction: rtl;
-    min-height: 100vh;
+    padding: 2rem;
 }
 
-.card {
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
-    padding: 2rem 1.5rem;
-    margin-bottom: 2rem;
+.header {
+    width: 100%;
+    max-width: 1200px;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
+    margin-bottom: 2rem;
 }
 
-.primaryBtn {
-    background-color: #2563eb;
+.header h1 {
+    font-size: 2.5rem;
+    color: #1e3a8a;
+    margin: 0;
+}
+
+.createButton {
+    background: #2563eb;
     color: white;
-    padding: 0.6rem 1.5rem;
+    padding: 0.75rem 1.5rem;
     border: none;
     border-radius: 8px;
     font-size: 1rem;
-    margin-top: 1rem;
+    font-weight: 500;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: background-color 0.3s;
 }
 
-.primaryBtn:hover {
-    background-color: #1d4ed8;
-    transform: translateY(-1px);
-    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+.createButton:hover {
+    background: #1d4ed8;
 }
 
-.secondaryBtn {
-    background-color: #f3f4f6;
-    color: #4b5563;
-    padding: 0.6rem 1.5rem;
-    border: 1px solid #d1d5db;
+.stats {
+    width: 100%;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.statCard {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.statCard h3 {
+    font-size: 1.25rem;
+    color: #1e3a8a;
+    margin: 0 0 1rem 0;
+}
+
+.statCard p {
+    font-size: 1.1rem;
+    color: #6b7280;
+    margin: 0.5rem 0;
+}
+
+.scholarshipsList {
+    width: 100%;
+    max-width: 1200px;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.scholarshipsList h2 {
+    font-size: 1.5rem;
+    color: #1e3a8a;
+    margin: 0 0 1.5rem 0;
+}
+
+.scholarshipCard {
+    background: #f8fafc;
+    padding: 1.5rem;
     border-radius: 8px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
+    margin-bottom: 1rem;
 }
 
-.secondaryBtn:hover {
-    background-color: #e5e7eb;
-    transform: translateY(-1px);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.scholarshipHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
 }
 
-.deleteBtn {
-    background-color: #dc2626;
+.scholarshipHeader h3 {
+    font-size: 1.25rem;
+    color: #1e3a8a;
+    margin: 0;
+}
+
+.scholarshipDetails {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.scholarshipDetails p {
+    color: #6b7280;
+    margin: 0;
+}
+
+.scholarshipActions {
+    display: flex;
+    gap: 1rem;
+}
+
+.scholarshipActions button {
+    background: #2563eb;
     color: white;
-    padding: 0.6rem 1.5rem;
+    padding: 0.5rem 1rem;
     border: none;
-    border-radius: 8px;
-    font-size: 1rem;
+    border-radius: 6px;
+    font-size: 0.875rem;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: background-color 0.2s;
 }
 
-.deleteBtn:hover {
-    background-color: #b91c1c;
-    transform: translateY(-1px);
-    box-shadow: 0 2px 4px rgba(220, 38, 38, 0.2);
+.scholarshipActions button:hover {
+    background: #1d4ed8;
 }
 
-.editBtn {
-    background-color: #2563eb;
+.status {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.status.pending {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.status.approved {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.approveButton {
+    background: #2563eb;
     color: white;
-    padding: 0.6rem 1.5rem;
+    padding: 0.5rem 1rem;
     border: none;
-    border-radius: 8px;
-    font-size: 1rem;
+    border-radius: 4px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
 }
 
-.editBtn:hover {
-    background-color: #1d4ed8;
-    transform: translateY(-1px);
-    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
-}
-
-.approveBtn {
-    background-color: #059669;
-    color: white;
-    padding: 0.6rem 1.5rem;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.approveBtn:hover {
-    background-color: #047857;
-    transform: translateY(-1px);
-    box-shadow: 0 2px 4px rgba(5, 150, 105, 0.2);
+.approveButton:hover {
+    background: #1d4ed8;
 }
 
 @media (max-width: 900px) {
     .container {
-        padding: 5rem 1rem 1.5rem 1rem;
+        padding: 1rem;
     }
 }
 
 @media (max-width: 600px) {
     .container {
-        padding: 4rem 0.5rem 1rem 0.5rem;
+        padding: 0.5rem;
     }
+}
+
+.actionButtons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.primaryBtn {
+    background: #2563eb;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.primaryBtn:hover {
+    background: #1d4ed8;
+}
+
+.secondaryBtn {
+    background: #6b7280;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.secondaryBtn:hover {
+    background: #4b5563;
+}
+
+.deleteBtn {
+    background: #dc2626;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.deleteBtn:hover {
+    background: #b91c1c;
+}
+
+.editBtn {
+    background: #2563eb;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.editBtn:hover {
+    background: #1d4ed8;
+}
+
+.approveBtn {
+    background: #2563eb;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.approveBtn:hover {
+    background: #1d4ed8;
+}
+
+.mainHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.centeredCreateButton {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.createButtonLarge {
+    background: #2563eb;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.createButtonLarge:hover {
+    background: #1d4ed8;
 }

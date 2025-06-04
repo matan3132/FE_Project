@@ -1,0 +1,38 @@
+.statusBar {
+    background-color: #fff9c4;
+    padding: 0.8rem 0;
+    border-bottom: 2px solid #ffe082;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.statusContent {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    text-align: right;
+    font-size: 1rem;
+    color: #5d4037;
+    font-weight: 600;
+    width: 100%;
+}
+
+.link {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.2s;
+}
+
+.link:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+}

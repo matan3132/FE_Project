@@ -2,10 +2,10 @@
   background: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
   position: fixed;
-  top: 0;
+  top: 40px;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 999;
   height: 80px;
   min-height: 80px;
   max-height: 80px;
@@ -73,6 +73,32 @@
   font-weight: 600;
 }
 
+.logoutBtn {
+  background: none;
+  border: none;
+  color: #dc2626;
+  font-weight: 500;
+  padding: 0.5rem 1.1rem;
+  border-radius: 8px;
+  transition: all 0.2s;
+  font-size: 1.08rem;
+  cursor: pointer;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logoutBtn:hover {
+  color: #dc2626;
+  background: #fef2f2;
+  transform: translateY(-1px);
+}
+
+.logoutIcon {
+  font-size: 1.1rem;
+}
+
 @media (max-width: 900px) {
   .navContent {
     padding: 0 1rem;
@@ -102,7 +128,8 @@
     gap: 0.5rem;
   }
 
-  .sideMenu a {
+  .sideMenu a,
+  .logoutBtn {
     padding: 0.5rem 0.6rem;
     font-size: 0.98rem;
   }

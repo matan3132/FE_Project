@@ -108,54 +108,185 @@
 
 .container {
     text-align: center;
-    padding: 2rem;
+    padding: 6rem 2rem 2rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
     direction: rtl;
+    min-height: 100vh;
 }
 
-.card {
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
-    padding: 2rem 1.5rem;
+.profileContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profileContainer h1 {
+    color: #333;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.profileContainer>p {
+    color: #666;
+    text-align: center;
     margin-bottom: 2rem;
+}
+
+.profileForm {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    gap: 2rem;
+}
+
+.section {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.section h2 {
+    color: #1e3a8a;
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.formGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.formGroup label {
+    color: #4b5563;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.formGroup input,
+.formGroup select {
+    padding: 0.75rem;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.15s ease-in-out;
+    background-color: white;
+    color: #333;
+}
+
+.formGroup input:focus,
+.formGroup select:focus {
+    outline: none;
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.formGroup input::placeholder {
+    color: #6c757d;
+}
+
+.formGroup select option {
+    background-color: white;
+    color: #333;
+}
+
+.formGroup input[type="date"],
+.formGroup input[type="number"],
+.formGroup input[type="tel"],
+.formGroup input[type="text"],
+.formGroup input[type="email"] {
+    width: 100%;
+    background-color: white;
+    color: #333;
+}
+
+.formGroup select {
+    width: 100%;
+    background-color: white;
+    color: #333;
+    cursor: pointer;
+}
+
+.formGroup select:disabled {
+    background-color: #f8f9fa;
+    cursor: not-allowed;
+}
+
+.formGroup input:disabled {
+    background-color: #f8f9fa;
+    cursor: not-allowed;
+}
+
+.formActions {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
 }
 
 .primaryBtn {
-    background-color: #2563eb;
+    background-color: #007bff;
     color: white;
-    padding: 0.6rem 1.5rem;
+    padding: 0.75rem 2rem;
     border: none;
-    border-radius: 8px;
+    border-radius: 4px;
     font-size: 1rem;
-    margin-top: 1rem;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: background-color 0.15s ease-in-out;
 }
 
 .primaryBtn:hover {
-    background-color: #1d4ed8;
-    transform: translateY(-1px);
-    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+    background-color: #0056b3;
 }
 
-.secondaryBtn {
-    background-color: #f3f4f6;
-    color: #4b5563;
-    padding: 0.6rem 1.5rem;
-    border: 1px solid #d1d5db;
-    border-radius: 8px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
+.primaryBtn:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
 }
 
-.secondaryBtn:hover {
-    background-color: #e5e7eb;
-    transform: translateY(-1px);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.success {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .profileContainer {
+        padding: 1rem;
+    }
+
+    .formGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .section {
+        padding: 1rem;
+    }
 }

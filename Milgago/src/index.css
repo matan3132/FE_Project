@@ -23,6 +23,8 @@
 
 body {
   margin: 0;
+  padding-top: 120px;
+  /* Status bar (40px) + Navigation bar (80px) */
   min-width: 320px;
   min-height: 100vh;
   direction: rtl;

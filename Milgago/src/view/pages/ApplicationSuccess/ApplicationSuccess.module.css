@@ -91,49 +91,90 @@
 }
 
 .container {
-    text-align: center;
-    padding: 6rem 2rem 2rem 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    direction: rtl;
     min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    position: relative;
+    overflow: hidden;
+    padding: 2rem;
 }
 
-.card {
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
-    padding: 2rem 1.5rem;
+.content {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 600px;
+    width: 90%;
+    z-index: 1;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.title {
+    color: #2c3e50;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.message {
+    color: #34495e;
+    font-size: 1.2rem;
     margin-bottom: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    line-height: 1.6;
 }
 
 .primaryBtn {
-    background-color: #2563eb;
+    background: #3498db;
     color: white;
-    padding: 0.6rem 1.5rem;
     border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    margin-top: 1rem;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 50px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
 }
 
 .primaryBtn:hover {
-    background-color: #1d4ed8;
+    background: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
 }
 
-@media (max-width: 900px) {
-    .container {
-        padding: 5rem 1rem 1.5rem 1rem;
+.primaryBtn:active {
+    transform: translateY(0);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
 @media (max-width: 600px) {
     .container {
-        padding: 4rem 0.5rem 1rem 0.5rem;
+        padding: 1rem;
+    }
+
+    .content {
+        padding: 2rem;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .message {
+        font-size: 1.1rem;
     }
 }

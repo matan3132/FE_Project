@@ -9,52 +9,62 @@
 
 .scholarshipsContainer {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
 .scholarshipsHeader {
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     text-align: center;
 }
 
 .scholarshipsTitle {
     font-size: 2.5rem;
-    color: #1e3a8a;
     margin-bottom: 1rem;
+    color: #1e3a8a;
+    font-weight: 800;
+    text-align: center;
 }
 
 .scholarshipsSubtitle {
     color: #6b7280;
     font-size: 1.1rem;
+    margin-bottom: 1rem;
 }
 
 .filters {
     display: flex;
     gap: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .filterInput {
     flex: 1;
-    min-width: 200px;
-    padding: 0.75rem;
+    min-width: 300px;
+    max-width: 600px;
+    padding: 0.75rem 1rem;
     border: 2px solid #e5e7eb;
-    border-radius: 8px;
+    border-radius: 12px;
     font-size: 1rem;
-    transition: border-color 0.3s;
+    transition: all 0.3s ease;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .filterInput:focus {
     outline: none;
     border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
-.scholarshipsGrid {
+.scholarshipGrid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 2rem;
+    padding: 1rem;
+    width: 100%;
 }
 
 .scholarshipCard {
@@ -62,44 +72,51 @@
     border-radius: 16px;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 450px;
 }
 
 .scholarshipCard:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 12px -1px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
 .scholarshipImage {
     width: 100%;
     height: 200px;
     object-fit: cover;
+    border-bottom: 1px solid #e5e7eb;
 }
 
 .scholarshipContent {
     padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .scholarshipTitle {
     font-size: 1.25rem;
     color: #1e3a8a;
-    margin-bottom: 0.5rem;
-}
-
-.scholarshipDescription {
-    color: #6b7280;
     margin-bottom: 1rem;
+    font-weight: 600;
+    line-height: 1.4;
+    min-height: 3.5em;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
 
 .scholarshipDetails {
     display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-bottom: 1rem;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    flex: 1;
 }
 
 .scholarshipDetail {
@@ -107,67 +124,23 @@
     align-items: center;
     gap: 0.5rem;
     color: #4b5563;
-    font-size: 0.875rem;
-}
-
-.scholarshipDetail svg {
-    width: 16px;
-    height: 16px;
-    color: #2563eb;
-}
-
-@media (max-width: 768px) {
-    .scholarships {
-        padding: 1rem;
-    }
-
-    .scholarshipsTitle {
-        font-size: 2rem;
-    }
-
-    .filters {
-        flex-direction: column;
-    }
-
-    .filterInput {
-        width: 100%;
-    }
-
-    .scholarshipsGrid {
-        grid-template-columns: 1fr;
-    }
-}
-
-.container {
-    text-align: center;
-    padding: 6rem 2rem 2rem 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    direction: rtl;
-    min-height: 100vh;
-}
-
-.card {
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
-    padding: 2rem 1.5rem;
-    margin-bottom: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    min-height: 1.5em;
 }
 
 .primaryBtn {
     background-color: #2563eb;
     color: white;
-    padding: 0.6rem 1.5rem;
+    padding: 0.75rem 1.5rem;
     border: none;
     border-radius: 8px;
     font-size: 1rem;
-    margin-top: 1rem;
+    font-weight: 500;
     cursor: pointer;
     transition: all 0.2s ease;
+    width: 100%;
+    margin-top: auto;
 }
 
 .primaryBtn:hover {
@@ -193,14 +166,151 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.noResults {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 2rem;
+    color: #6b7280;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 1200px) {
+    .scholarshipGrid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .scholarships {
+        padding: 1.5rem 1rem;
+    }
+
+    .scholarshipsTitle {
+        font-size: 2rem;
+    }
+
+    .filterInput {
+        min-width: 100%;
+    }
+
+    .scholarshipGrid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1rem;
+    }
+
+    .scholarshipCard {
+        min-height: 400px;
+    }
+
+    .scholarshipImage {
+        height: 180px;
+    }
+
+    .scholarshipContent {
+        padding: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .scholarships {
+        padding: 1rem 0.5rem;
+    }
+
+    .scholarshipsTitle {
+        font-size: 1.75rem;
+    }
+
+    .scholarshipGrid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .scholarshipCard {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+
+.container {
+    text-align: center;
+    padding: 6rem 2rem 2rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    direction: rtl;
+    min-height: 100vh;
+}
+
+.card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+    padding: 2rem 1.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.honeycombGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+    position: relative;
+}
+
+.honeycombRow {
+    display: contents;
+}
+
+.honeycombCard {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 100%;
+}
+
+.honeycombCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Stagger every even row for honeycomb effect */
+.honeycombGrid .honeycombCard:nth-child(odd) {
+    margin-top: 0;
+}
+
+.honeycombGrid .honeycombCard:nth-child(even) {
+    margin-top: 40px;
+}
+
 @media (max-width: 900px) {
-    .container {
-        padding: 5rem 1rem 1.5rem 1rem;
+    .honeycombGrid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 2rem 1rem;
+    }
+
+    .honeycombCard {
+        width: 180px;
+        min-height: 220px;
     }
 }
 
 @media (max-width: 600px) {
-    .container {
-        padding: 4rem 0.5rem 1rem 0.5rem;
+    .honeycombGrid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.2rem 0.5rem;
+    }
+
+    .honeycombCard {
+        width: 100%;
+        min-width: 0;
+        min-height: 180px;
     }
 }
